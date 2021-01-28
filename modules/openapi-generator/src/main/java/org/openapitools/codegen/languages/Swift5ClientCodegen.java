@@ -113,7 +113,6 @@ public class Swift5ClientCodegen extends DefaultCodegen implements CodegenConfig
                         "Bool",
                         "Void",
                         "String",
-                        "URL",
                         "Data",
                         "Date",
                         "Character",

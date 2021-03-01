@@ -63,6 +63,7 @@ public class Swift5ClientCodegen extends DefaultCodegen implements CodegenConfig
     public static final String LENIENT_TYPE_CAST = "lenientTypeCast";
     public static final String USE_SPM_FILE_STRUCTURE = "useSPMFileStructure";
     public static final String SWIFT_PACKAGE_PATH = "swiftPackagePath";
+    public static final String USE_CLASS_MODELS = "useClassModels";
     protected static final String LIBRARY_ALAMOFIRE = "alamofire";
     protected static final String LIBRARY_URLSESSION = "urlsession";
     protected static final String LIBRARY_VAPOR = "vapor";
@@ -79,6 +80,7 @@ public class Swift5ClientCodegen extends DefaultCodegen implements CodegenConfig
     protected boolean swiftUseApiNamespace = false;
     protected boolean useSPMFileStructure = false;
     protected String swiftPackagePath = "Classes" + File.separator + "OpenAPIs";
+    protected boolean useClassModels = false;
     protected String[] responseAs = new String[0];
     protected String sourceFolder = swiftPackagePath;
     protected HashSet objcReservedWords;
@@ -858,6 +860,10 @@ public class Swift5ClientCodegen extends DefaultCodegen implements CodegenConfig
 
     public void setSwiftPackagePath(String swiftPackagePath) {
         this.swiftPackagePath = swiftPackagePath;
+    }
+
+    public void setUseClassModels(boolean useClassModels) {
+        this.useClassModels = useClassModels;
     }
 
     @Override

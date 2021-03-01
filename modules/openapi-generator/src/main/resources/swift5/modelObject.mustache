@@ -91,7 +91,7 @@
     }
 }
 
-{{#useVapor}}
+{{^objcCompatible}}
 extension {{classname}}: Hashable {
     {{#nonPublicApi}}internal{{/nonPublicApi}}{{^nonPublicApi}}public{{/nonPublicApi}} static func == (lhs: {{classname}}, rhs: {{classname}}) -> Bool {
         {{#allVars}}
@@ -106,6 +106,5 @@ extension {{classname}}: Hashable {
         {{/allVars}}
         {{#additionalPropertiesType}}hasher.combine(additionalProperties.hashValue){{/additionalPropertiesType}}
     }
-
 }
-{{/useVapor}}
+{{/objcCompatible}}

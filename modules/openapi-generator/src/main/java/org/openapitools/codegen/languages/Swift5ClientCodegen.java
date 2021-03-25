@@ -62,7 +62,10 @@ public class Swift5ClientCodegen extends DefaultCodegen implements CodegenConfig
     public static final String DEFAULT_POD_AUTHORS = "OpenAPI Generator";
     public static final String LENIENT_TYPE_CAST = "lenientTypeCast";
     public static final String USE_SPM_FILE_STRUCTURE = "useSPMFileStructure";
+<<<<<<< HEAD
     public static final String SWIFT_PACKAGE_PATH = "swiftPackagePath";
+=======
+>>>>>>> 22404061df78 ([swift5] Add useSPMFileStructure)
     protected static final String LIBRARY_ALAMOFIRE = "alamofire";
     protected static final String LIBRARY_URLSESSION = "urlsession";
     protected static final String RESPONSE_LIBRARY_PROMISE_KIT = "PromiseKit";
@@ -77,7 +80,10 @@ public class Swift5ClientCodegen extends DefaultCodegen implements CodegenConfig
     protected boolean readonlyProperties = false;
     protected boolean swiftUseApiNamespace = false;
     protected boolean useSPMFileStructure = false;
+<<<<<<< HEAD
     protected String swiftPackagePath = "Classes" + File.separator + "OpenAPIs";
+=======
+>>>>>>> 22404061df78 ([swift5] Add useSPMFileStructure)
     protected String[] responseAs = new String[0];
     protected String sourceFolder = swiftPackagePath;
     protected HashSet objcReservedWords;
@@ -357,7 +363,12 @@ public class Swift5ClientCodegen extends DefaultCodegen implements CodegenConfig
         } else {
             additionalProperties.put(PROJECT_NAME, projectName);
         }
-        sourceFolder = projectName + File.separator + sourceFolder;
+        // Use SPM File Structure ex. Sources/{{PROJECT_NAME}}
+        if (additionalProperties.containsKey(USE_SPM_FILE_STRUCTURE)) {
+            sourceFolder = sourceFolder + File.separator + projectName;
+        } else {
+            sourceFolder = projectName + File.separator + sourceFolder;
+        }
 
         // Setup nonPublicApi option, which generates code with reduced access
         // modifiers; allows embedding elsewhere without exposing non-public API calls
